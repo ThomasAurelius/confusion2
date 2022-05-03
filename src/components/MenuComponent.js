@@ -8,19 +8,18 @@ function Menu(props) {
    })   
    
 
-   //why is onDishSelect running on load and not on click?
    function onDishSelect(dish) {
       console.log(dish)  
-      //setSelectedDish({ selectedDish: dish })   
+      // setSelectedDish({ selectedDish: dish })   
    }
-   // i need onDishSelect to update state of selectedDish based on which card is clicked.
+   
    
    
    const menu = props.dishes.map(dish => { 
 
    return (
       <div key={dish.id} className="col-12 col-md-5">
-         <Card onClick={onDishSelect(dish)}>
+         <Card onClick={() => onDishSelect(dish)}>
             <CardImg object src={dish.image} alt={dish.name} ></CardImg>
             <CardImgOverlay>
                <CardTitle>{dish.name}</CardTitle>  
