@@ -1,6 +1,11 @@
+import React from 'react'
 import { Navbar, NavbarBrand } from 'reactstrap';
+import Menu from './components/MenuComponent';
+import { DISHES } from './components/Dishes';
 
 function App() {
+
+  const [dishes, setDishes] = React.useState(DISHES)
 
     return (
       <div className="App">
@@ -9,6 +14,7 @@ function App() {
             <NavbarBrand href="/">Ristorante Con Fusion</NavbarBrand>
           </div>
         </Navbar>
+        <Menu dishes={dishes}/>
       </div>
     );
   
