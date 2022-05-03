@@ -9,11 +9,9 @@ function Menu(props) {
    
 
    function onDishSelect(dish) {
-      console.log(dish)  
-      // setSelectedDish({ selectedDish: dish })   
+         setSelectedDish({ selectedDish: dish })         
    }
-   
-   
+     
    
    const menu = props.dishes.map(dish => { 
 
