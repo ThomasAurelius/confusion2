@@ -34,8 +34,8 @@ function Menu(props) {
    
    const menu = props.dishes.map(dish => { 
    return (
-      <div key={dish.id} onClick={() => onDishSelect(dish)} className="col-12 col-md-5 m-1">
-         <Card>
+      <div key={dish.id} className="col-12 col-md-5 m-1">
+         <Card onClick={() => onDishSelect(dish)} >
             <CardImg object src={dish.image} alt={dish.name} ></CardImg>
             <CardImgOverlay>
                <CardTitle>{dish.name}</CardTitle>  
