@@ -8,20 +8,19 @@ function Menu(props) {
       selectedDish: null
    })   
    
-
    function onDishSelect(dish) {
          setSelectedDish({ selectedDish: dish })
          renderDish(dish)
    }
 
-   function renderDish(dish) {
-      if (dish != null) {
+   function renderDish(clickedDish) {
+      if (clickedDish != null) {
          return (
             <Card>
-               <CardImg object src={dish.image} alt={dish.name} ></CardImg>
+               <CardImg object src={clickedDish.image} alt={clickedDish.name} ></CardImg>
                <CardBody>
-                  <CardTitle>{dish.name}</CardTitle>
-                  <CardText>{dish.description}</CardText>
+                  <CardTitle>{clickedDish.name}</CardTitle>
+                  <CardText>{clickedDish.description}</CardText>
                </CardBody>
             </Card>
          )
@@ -34,10 +33,9 @@ function Menu(props) {
      
    
    const menu = props.dishes.map(dish => { 
-
    return (
-      <div key={dish.id} className="col-12 col-md-5 m-1">
-         <Card onClick={() => onDishSelect(dish)}>
+      <div key={dish.id} onClick={() => onDishSelect(dish)} className="col-12 col-md-5 m-1">
+         <Card>
             <CardImg object src={dish.image} alt={dish.name} ></CardImg>
             <CardImgOverlay>
                <CardTitle>{dish.name}</CardTitle>  
