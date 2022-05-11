@@ -24,6 +24,8 @@ function DishDetail({props}) {
       }
    }
 
+   
+   
    function renderComments() {
       if (props.selectedDish != null) {
          return (
@@ -39,7 +41,7 @@ function DishDetail({props}) {
                               <div className="comments" key={comment.id}>
                                  <p><strong>Rating:</strong> {comment.rating}</p>
                                  <p><strong>Comment:</strong> {comment.comment}</p>
-                                 <small><em><strong>Author:</strong> {comment.author}</em></small>
+                                 <small><em><strong>Author:</strong> {comment.author}</em>, {comment.date.split('T')[0]}</small>
                               </div>
                            )
                         })}
