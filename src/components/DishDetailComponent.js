@@ -49,6 +49,10 @@ function DishDetail({props}) {
                </Card>
             </div>
          )
+      } else {
+         return (
+            <div></div>
+         )
       }
    }
 
