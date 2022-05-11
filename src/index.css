@@ -11,3 +11,26 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.comments h3, .comments p {
+  margin: 0;
+}
+
+.comments{
+  margin-bottom: 20px;
+}
+
+.flex {
+  display: flex;
+  
+}
+
+
+
+div.row, div.card {
+  padding: 0;
+}
+
+img.card-img {
+  padding: 0;
+}
