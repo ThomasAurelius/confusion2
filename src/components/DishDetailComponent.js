@@ -41,7 +41,7 @@ function DishDetail({props}) {
                               <div className="comments" key={comment.id}>
                                  <p><strong>Rating:</strong> {comment.rating}</p>
                                  <p><strong>Comment:</strong> {comment.comment}</p>
-                                 <small><em><strong>Author:</strong> {comment.author}</em>, {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day:'2-digit'}).format(new Date(Date.parse(comment.date)))}</small>
+                                 <small><em><strong>Author:</strong> {comment.author}, {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day:'2-digit'}).format(new Date(Date.parse(comment.date)))}</em></small>
                               </div>
                            )
                         })}
