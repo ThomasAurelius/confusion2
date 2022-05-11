@@ -4,23 +4,24 @@ import { Card, CardImg, CardImgOverlay, CardTitle, CardBody, CardText } from 're
 
 function Menu(props) {
 
-   const [selectedDish, setSelectedDish] = React.useState({
+   const [menuItem, setMenuItem] = React.useState({
       selectedDish: null
    })   
    
    function onDishSelect(dish) {
-         setSelectedDish({ selectedDish: dish })
+         setMenuItem({ selectedDish: dish })
          renderDish(dish)
+         console.log(dish)
    }
 
-   function renderDish(clickedDish) {
-      if (clickedDish != null) {
+   function renderDish() {
+      if (menuItem.selectedDish != null) {
          return (
             <Card>
-               <CardImg object src={clickedDish.image} alt={clickedDish.name} ></CardImg>
+               <CardImg object src={menuItem.selectedDish.image} alt={menuItem.selectedDish.name} ></CardImg>
                <CardBody>
-                  <CardTitle>{clickedDish.name}</CardTitle>
-                  <CardText>{clickedDish.description}</CardText>
+                  <CardTitle>{menuItem.selectedDish.name}</CardTitle>
+                  <CardText>{menuItem.selectedDish.description}</CardText>
                </CardBody>
             </Card>
          )
@@ -34,8 +35,8 @@ function Menu(props) {
    
    const menu = props.dishes.map(dish => { 
    return (
-      <div key={dish.id} className="col-12 col-md-5 m-1">
-         <Card onClick={() => onDishSelect(dish)} >
+      <div key={dish.id} className="col-12 col-md-5 m-1" onClick={() => onDishSelect(dish)}>
+         <Card  >
             <CardImg object src={dish.image} alt={dish.name} ></CardImg>
             <CardImgOverlay>
                <CardTitle>{dish.name}</CardTitle>  
@@ -51,7 +52,7 @@ function Menu(props) {
             {menu}  
          </div>
          <div className="row col-12 col-md-5 m-1">
-            {renderDish(selectedDish)}
+            {renderDish()}
          </div>
       </div>
    )
