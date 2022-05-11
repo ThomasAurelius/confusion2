@@ -36,7 +36,7 @@ function Menu(props) {
          <div className='row'>
             {menu}  
          </div>
-         <DishDetail props={menuItem.selectedDish} />
+         <DishDetail props={menuItem} />
       </div>
    )
 }

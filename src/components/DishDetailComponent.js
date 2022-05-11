@@ -3,17 +3,16 @@ import { Card, CardImg, CardText, CardTitle, CardBody } from 'reactstrap'
 
 
 function DishDetail({props}) {
-   console.log(props.name)
 
   function renderDish() {
-      if (props != null) {
+      if (props.selectedDish != null) {
          return (
             <div className="row col-12 col-md-5 m-1">
                <Card >
-                  <CardImg object src={props.image} alt={props.name} ></CardImg>
+                  <CardImg object src={props.selectedDish.image} alt={props.selectedDish.name} ></CardImg>
                   <CardBody>
-                     <CardTitle>{props.name}</CardTitle>
-                     <CardText>{props.description}</CardText>
+                     <CardTitle>{props.selectedDish.name}</CardTitle>
+                     <CardText>{props.selectedDish.description}</CardText>
                   </CardBody>
                </Card>
             </div>
@@ -26,7 +25,7 @@ function DishDetail({props}) {
    }
 
    function renderComments() {
-      if (props != null) {
+      if (props.selectedDish != null) {
          return (
             <div className="row col-12 col-md-5 m-1">
                <Card  >
@@ -35,7 +34,7 @@ function DishDetail({props}) {
                         <h2>Comments</h2>
                      </CardTitle>
                      <CardBody>
-                        {props.comments.map((comment) => {
+                        {props.selectedDish.comments.map((comment) => {
                            return (
                               <div className="comments" key={comment.id}>
                                  <p><strong>Rating:</strong> {comment.rating}</p>
@@ -48,10 +47,6 @@ function DishDetail({props}) {
                   </CardBody>
                </Card>
             </div>
-         )
-      } else {
-         return (
-            <div></div>
          )
       }
    }
