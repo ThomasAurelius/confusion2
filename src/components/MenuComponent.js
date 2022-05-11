@@ -1,4 +1,5 @@
 import React from 'react'
+import DishDetail from './DishDetailComponent'
 import { Card, CardImg, CardImgOverlay, CardTitle, CardBody, CardText } from 'reactstrap'
 
 
@@ -10,56 +11,11 @@ function Menu(props) {
    
    function onDishSelect(dish) {
          setMenuItem({ selectedDish: dish })
-         renderDish(dish)
+         
          console.log(dish)
    }
 
-   function renderDish() {
-      if (menuItem.selectedDish != null) {
-         return (
-            <div className="row col-12 col-md-5 m-1">
-               <Card >
-                  <CardImg object src={menuItem.selectedDish.image} alt={menuItem.selectedDish.name} ></CardImg>
-                  <CardBody>
-                     <CardTitle>{menuItem.selectedDish.name}</CardTitle>
-                     <CardText>{menuItem.selectedDish.description}</CardText>
-                  </CardBody>
-               </Card>
-            </div>
-         )
-      } else {
-         return (
-            <div></div>
-         )
-      }
-   }
-
-   function renderComments() {
-      if (menuItem.selectedDish != null) {
-         return (
-            <div className="row col-12 col-md-5 m-1">
-               <Card  >
-                  <CardBody>
-                     <CardTitle>
-                        <h2>Comments</h2>
-                     </CardTitle>
-                     <CardBody>
-                        {menuItem.selectedDish.comments.map((comment) => {
-                           return (
-                              <div className="comments" key={comment.id}>
-                                 <p><strong>Rating:</strong> {comment.rating}</p>
-                                 <p><strong>Comment:</strong> {comment.comment}</p>
-                                 <small><em><strong>Author:</strong> {comment.author}</em></small>
-                              </div>
-                           )
-                        })}
-                     </CardBody>
-                  </CardBody>
-               </Card>
-            </div>
-         )
-      }
-   }
+   
      
    
    const menu = props.dishes.map(dish => { 
@@ -80,10 +36,7 @@ function Menu(props) {
          <div className='row'>
             {menu}  
          </div>
-         <div className="row">
-            {renderDish()}
-            {renderComments()}
-         </div>
+         <DishDetail props={menuItem.selectedDish} />
       </div>
    )
 }
