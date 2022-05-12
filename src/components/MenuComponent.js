@@ -1,6 +1,6 @@
 import React from 'react'
 import DishDetail from './DishDetailComponent'
-import { Card, CardImg, CardImgOverlay, CardTitle, CardBody, CardText } from 'reactstrap'
+import { Card, CardImg, CardImgOverlay, CardTitle } from 'reactstrap'
 
 
 function Menu(props) {
