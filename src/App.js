@@ -1,20 +1,12 @@
 import React from 'react'
-import { Navbar, NavbarBrand } from 'reactstrap';
-import Menu from './components/MenuComponent';
-import { DISHES } from './components/Dishes';
+import Main from './components/MainComponent';
+import './index.css'
+
 
 function App() {
-
-  const [dishes, setDishes] = React.useState(DISHES)
-
     return (
       <div className="App">
-        <Navbar dark color="primary">
-          <div className="container">
-            <NavbarBrand href="/">Ristorante Con Fusion</NavbarBrand>
-          </div>
-        </Navbar>
-        <Menu dishes={dishes}/>
+        <Main />
       </div>
     );
   

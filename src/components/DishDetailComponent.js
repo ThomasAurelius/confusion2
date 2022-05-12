@@ -2,17 +2,18 @@ import React from 'react'
 import { Card, CardImg, CardText, CardTitle, CardBody } from 'reactstrap'
 
 
-function DishDetail({props}) {
+function DishDetail(props) {
+   console.log(props)
 
   function renderDish() {
-      if (props.selectedDish != null) {
+      if (props.dish != null) {
          return (
             <div className="row col-12 col-md-5 m-1">
-               <Card >
-                  <CardImg object src={props.selectedDish.image} alt={props.selectedDish.name} ></CardImg>
+               <Card>
+                  <CardImg object src={props.dish.image} alt={props.dish.name} ></CardImg>
                   <CardBody>
-                     <CardTitle>{props.selectedDish.name}</CardTitle>
-                     <CardText>{props.selectedDish.description}</CardText>
+                     <CardTitle>{props.dish.name}</CardTitle>
+                     <CardText>{props.dish.description}</CardText>
                   </CardBody>
                </Card>
             </div>
@@ -27,7 +28,7 @@ function DishDetail({props}) {
    
    
    function renderComments() {
-      if (props.selectedDish != null) {
+      if (props.dish != null) {
          return (
             <div className="row col-12 col-md-5 m-1">
                <Card  >
@@ -36,7 +37,7 @@ function DishDetail({props}) {
                         <h2>Comments</h2>
                      </CardTitle>
                      <CardBody>
-                        {props.selectedDish.comments.map((comment) => {
+                        {props.dish.comments.map((comment) => {
                            return (
                               <div className="comments" key={comment.id}>
                                  <p><strong>Rating:</strong> {comment.rating}</p>
