@@ -3,6 +3,7 @@ import { DISHES } from './Dishes';
 import Menu from './MenuComponent';
 import DishDetail from './DishDetailComponent';
 import Header from './Header'
+import Footer from './Footer'
 
 
 function Main() {
@@ -26,6 +27,7 @@ function Main() {
         <Header />      
         <Menu dishes={dishState.dishes} onClick={(dishId) => onDishSelect(dishId)} />
         <DishDetail dish={dishState.selectedDish} />
+        <Footer />
       </div>
     );
   
