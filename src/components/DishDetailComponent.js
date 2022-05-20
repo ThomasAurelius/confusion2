@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 
 function DishDetail(props) {
-   console.log("Dishdetail " + props)
+   
 
   function RenderDish({dish}) {
       if (dish != null) {
@@ -55,7 +55,7 @@ function DishDetail(props) {
       }
    }
 
-   if (props.dish !== null) {
+   
    return (
       <div className="container">
          <div className="row">
@@ -71,15 +71,17 @@ function DishDetail(props) {
             </div>
          </div>
          <div className="row">
-            <RenderDish dish={props.dish}/>
-            <RenderComments comments={props.comments} />
+            <div className="col-12 col-md-5 m-1">
+               <RenderDish dish={props.dish} />
+            </div>
+            <div className="col-12 col-md-5 m-1">
+               <RenderComments comments={props.comments} />
+            </div>
          </div>
       </div>
    )
-   } else {
-      return <></>
-   }
 }
+
 
 
 

@@ -103,3 +103,16 @@ address {
 .navbar-dark {
   background-color: #512DA8;
 }
+
+.media {
+  margin-bottom: 50px;
+}
+
+li {
+  list-style-type: none;
+  display: flex;
+}
+
+li img {
+  margin-right: 30px;
+}

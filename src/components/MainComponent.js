@@ -7,6 +7,7 @@ import Home from './HomeComponent';
 import Menu from './MenuComponent';
 import Contact from './ContactComponent';
 import DishDetail from './DishDetailComponent';
+import About from './AboutComponent'
 import Header from './Header';
 import Footer from './Footer';
 import { Routes, Route, Navigate } from 'react-router-dom';
@@ -54,6 +55,7 @@ render() {
         <Header />      
          <Routes>
             <Route path='/home' element={HomePage()} />
+            <Route exact path='/aboutus' element={<About leaders={this.state.leaders} />} />
             <Route exact path='/menu' element={<Menu dishes={this.state.dishes} />} /> 
             <Route path='/menu/:dishId' element={DishWithId} />
             <Route exact path='/contactus' element={<Contact />} />
