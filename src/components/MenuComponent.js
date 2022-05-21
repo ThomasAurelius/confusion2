@@ -4,15 +4,15 @@ import { Card, CardImg, CardImgOverlay, CardTitle, Breadcrumb, BreadcrumbItem } 
 
 
 
-function RenderMenuItem({ dish, onClick }) {
+function RenderMenuItem({ dish }) {
    return (
       <Card>
-      <Link to={`/menu/${dish.id}`} >
-         <CardImg object src={dish.image} alt={dish.name} ></CardImg>
-         <CardImgOverlay>
-            <CardTitle>{dish.name}</CardTitle>  
-         </CardImgOverlay>
-      </Link>
+         <Link to={`/menu/${dish.id}`} >
+            <CardImg object src={dish.image} alt={dish.name} ></CardImg>
+            <CardImgOverlay>
+               <CardTitle>{dish.name}</CardTitle>  
+            </CardImgOverlay>
+         </Link>
       </Card>
    )
 }

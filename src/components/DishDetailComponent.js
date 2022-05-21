@@ -6,15 +6,15 @@ import { Link } from 'react-router-dom'
 function DishDetail(props) {
    
 
-  function RenderDish({dish}) {
+  function RenderDish({ dish }) {
       if (dish != null) {
          return (
             <div className="row col-12 col-md-5 m-1">
                <Card>
-                  <CardImg object src={dish.image} alt={dish.name} ></CardImg>
+                  <CardImg object src={dish?.image} alt={dish?.name} ></CardImg>
                   <CardBody>
-                     <CardTitle>{dish.name}</CardTitle>
-                     <CardText>{dish.description}</CardText>
+                     <CardTitle>{dish?.name}</CardTitle>
+                     <CardText>{dish?.description}</CardText>
                   </CardBody>
                </Card>
             </div>
@@ -28,7 +28,7 @@ function DishDetail(props) {
 
    
    
-   function RenderComments({comments}) {
+   function RenderComments({ comments }) {
       if (comments != null) {
          return (
             <div className="row col-12 col-md-5 m-1">
