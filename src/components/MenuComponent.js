@@ -8,7 +8,7 @@ function RenderMenuItem({ dish }) {
    return (
       <Card>
          <Link to={`/menu/${dish.id}`} >
-            <CardImg object src={dish.image} alt={dish.name} ></CardImg>
+            <CardImg src={dish.image} alt={dish.name} ></CardImg>
             <CardImgOverlay>
                <CardTitle>{dish.name}</CardTitle>  
             </CardImgOverlay>

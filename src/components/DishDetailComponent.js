@@ -21,7 +21,7 @@ function DishDetail(props) {
          )
       } else {
          return (
-            <div></div>
+            <div>EMPTYDISH</div>
          )
       }
    }
@@ -52,6 +52,8 @@ function DishDetail(props) {
                </Card>
             </div>
          )
+      } else {
+         return <div>EMPTYCOMMENTS</div>
       }
    }
 
@@ -63,10 +65,10 @@ function DishDetail(props) {
                <BreadcrumbItem>
                   <Link to='/menu'>Menu</Link>
                </BreadcrumbItem>
-               <BreadcrumbItem active>{props.dish.name}</BreadcrumbItem>            
+               <BreadcrumbItem active>{props?.dish?.name}</BreadcrumbItem>            
             </Breadcrumb>
             <div className="col-12">
-               <h3>{props.dish.name}</h3>
+               <h3>{props?.dish?.name}</h3>
                <hr />
             </div>
          </div>
@@ -80,7 +82,7 @@ function DishDetail(props) {
          </div>
       </div>
    )
-}
+} 
 
 
 
