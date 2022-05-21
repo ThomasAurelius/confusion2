@@ -56,7 +56,7 @@ render() {
                <Route path='/home' element={<HomePage />} />
                <Route exact path='/aboutus' element={<About leaders={this.state.leaders} />} />
                <Route exact path='/menu' element={<Menu dishes={this.state.dishes} />} /> 
-               <Route path='/menu/:dishId' element={DishWithId } />
+               <Route path='/menu/:dishId' element={DishWithId} />
                <Route exact path='/contactus' element={<Contact />} />
             </Routes>
         <Footer />
