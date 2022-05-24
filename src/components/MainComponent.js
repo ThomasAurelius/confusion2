@@ -51,7 +51,7 @@ render() {
 
     return (
       <div className="App">
-        <Header />      
+        <Header />        
             <Routes>
                <Route path='/home' element={<HomePage />} />
                <Route exact path='/aboutus' element={<About leaders={this.state.leaders} />} />
