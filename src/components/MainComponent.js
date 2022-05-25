@@ -15,6 +15,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 
 
 class Main extends Component {
+   
 constructor() {
    super()
 
@@ -27,6 +28,8 @@ constructor() {
       }
       console.log(this.state)
 }
+
+
 render() {
    const HomePage = () => {
       return(
@@ -39,11 +42,11 @@ render() {
    }
  
 
-   const DishWithId = ( { match } ) => {
+   const DishWithId = ({match}) => {
       return (
          <DishDetail 
-            dish={this.state.dishes.filter((dish) => dish.id === parseInt(match?.params?.dishId,10))[0] } 
-            comments={this.state.comments.filter((comment) => comment.dishId === parseInt(match?.params?.dishId,10))[0] } 
+            dish={this.state.dishes.filter((dish) => dish.id === match?.params?.dishId)[0] } 
+            comments={this.state.comments.filter((comment) => comment.dishId === match?.params?.dishId)[0] } 
          />
       )
    }
@@ -51,7 +54,7 @@ render() {
 
     return (
       <div className="App">
-        <Header />        
+        <Header />         
             <Routes>
                <Route path='/home' element={<HomePage />} />
                <Route exact path='/aboutus' element={<About leaders={this.state.leaders} />} />
