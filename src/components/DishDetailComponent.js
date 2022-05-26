@@ -8,7 +8,7 @@ function DishDetail(props) {
   function RenderDish(props) {
       if (props.dish != null) {
          return (
-            <div className="row col-12 col-md-5 m-1">
+            <div className="">
                <Card>
                   <CardImg object src={props.dish?.image} alt={props.dish?.name} ></CardImg>
                   <CardBody>
@@ -30,7 +30,7 @@ function DishDetail(props) {
    function RenderComments({ comments }) {
       if (comments != null) {
          return (
-            <div className="row col-12 col-md-5 m-1">
+            <div className="">
                <Card  >
                   <CardBody>
                      <CardTitle>
