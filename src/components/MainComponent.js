@@ -25,8 +25,7 @@ function Main(props) {
       }
       
 )
-   const { id } = useParams()
- 
+    
 
    const HomePage = () => {
       return(
@@ -39,15 +38,20 @@ function Main(props) {
    }
  
 
-   const DishWithId = ({match}) => {
+   const DishWithId = () => {
+      const { id } = useParams();
+      const dish = allState.dishes.find((dish) => dish.id === Number(id));
+      const comments = allState.comments.filter((comment) => comment.dishId === Number(id));
+      console.log(comments)
       return (
          <DishDetail 
-            dish={allState.dishes.filter((dish) => dish.id === id)[0] } 
-            comments={allState.comments.filter((comment) => comment.dishId === id)[0] } 
+            dish={dish} 
+            comments={comments} 
          />
       )
    }
-    
+
+   
 
     return (
       <div className="App">
@@ -56,7 +60,7 @@ function Main(props) {
                <Route path='/home' element={<HomePage />} />
                <Route exact path='/aboutus' element={<About leaders={allState.leaders} />} />
                <Route exact path='/menu' element={<Menu dishes={allState.dishes} />} /> 
-               <Route path='/menu/:dishId' element={<DishWithId />} render={(props) => <DishWithId {...props} />} />
+               <Route path='/menu/:id' element={<DishWithId />}  />
                <Route exact path='/contactus' element={<Contact />} />
             </Routes>
         <Footer />

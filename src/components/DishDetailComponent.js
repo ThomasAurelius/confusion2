@@ -28,8 +28,8 @@ function DishDetail(props) {
 
    
    
-   function RenderComments(props) {
-      if (props.comments != null) {
+   function RenderComments({ comments }) {
+      if (comments != null) {
          return (
             <div className="row col-12 col-md-5 m-1">
                <Card  >
@@ -38,7 +38,7 @@ function DishDetail(props) {
                         <h2>Comments</h2>
                      </CardTitle>
                      <CardBody>
-                        {props.comments.map((comment) => {
+                        {comments.map((comment) => {
                            return (
                               <div className="comments" key={comment.id}>
                                  <p><strong>Rating:</strong> {comment.rating}</p>
