@@ -42,7 +42,6 @@ function Main(props) {
       const { id } = useParams();
       const dish = allState.dishes.find((dish) => dish.id === Number(id));
       const comments = allState.comments.filter((comment) => comment.dishId === Number(id));
-      console.log(comments)
       return (
          <DishDetail 
             dish={dish} 

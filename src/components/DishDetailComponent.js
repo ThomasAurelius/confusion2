@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 
 
 function DishDetail(props) {
-   console.log(props)
 
   function RenderDish(props) {
       if (props.dish != null) {
