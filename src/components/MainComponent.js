@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { DISHES } from './dishes';
 import { COMMENTS } from './comments';
 import { PROMOTIONS } from './promotions';
@@ -10,33 +10,30 @@ import DishDetail from './DishDetailComponent';
 import About from './AboutComponent'
 import Header from './Header';
 import Footer from './Footer';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, useParams } from 'react-router-dom';
 
 
 
-class Main extends Component {
-   
-constructor() {
-   super()
+function Main(props) {  
 
-   this.state = 
+   const [allState, setAllState] =  React.useState(
       {
       dishes: DISHES,
       comments: COMMENTS,
       promotions: PROMOTIONS,
       leaders: LEADERS
       }
-      console.log(this.state)
-}
+      
+)
+   const { id } = useParams()
+ 
 
-
-render() {
    const HomePage = () => {
       return(
          <Home 
-            dish={this.state.dishes.filter((dish) => dish.featured)[0]}
-            promotion={this.state.promotions.filter((promo) => promo.featured)[0]}
-            leader={this.state.leaders.filter((leader) => leader.featured)[0]}
+            dish={allState.dishes.filter((dish) => dish.featured)[0]}
+            promotion={allState.promotions.filter((promo) => promo.featured)[0]}
+            leader={allState.leaders.filter((leader) => leader.featured)[0]}
          />
       );
    }
@@ -45,8 +42,8 @@ render() {
    const DishWithId = ({match}) => {
       return (
          <DishDetail 
-            dish={this.state.dishes.filter((dish) => dish.id === match?.params?.dishId)[0] } 
-            comments={this.state.comments.filter((comment) => comment.dishId === match?.params?.dishId)[0] } 
+            dish={allState.dishes.filter((dish) => dish.id === id)[0] } 
+            comments={allState.comments.filter((comment) => comment.dishId === id)[0] } 
          />
       )
    }
@@ -57,15 +54,15 @@ render() {
         <Header />         
             <Routes>
                <Route path='/home' element={<HomePage />} />
-               <Route exact path='/aboutus' element={<About leaders={this.state.leaders} />} />
-               <Route exact path='/menu' element={<Menu dishes={this.state.dishes} />} /> 
-               <Route path='/menu/:dishId' element={<DishWithId />} />
+               <Route exact path='/aboutus' element={<About leaders={allState.leaders} />} />
+               <Route exact path='/menu' element={<Menu dishes={allState.dishes} />} /> 
+               <Route path='/menu/:dishId' element={<DishWithId />} render={(props) => <DishWithId {...props} />} />
                <Route exact path='/contactus' element={<Contact />} />
             </Routes>
         <Footer />
       </div>
     );
-    }
+    
 }
 
 
