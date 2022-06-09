@@ -103,7 +103,7 @@ function Contact(props) {
                                 <Input type="email" id="email" name="email" placeholder='Email Address' value={contactState.email} onChange={handleInputChange}></Input>
                             </Col>
                         </FormGroup>
-                        <FormGroup>
+                        <FormGroup row>
                             <Col md={{size:6, offset :2}}>
                                 <FormGroup check >
                                     <Label check>
