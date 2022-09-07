@@ -1,5 +1,5 @@
 import React from 'react';
-import { DISHES } from './dishes';
+import { DISHES } from './Dishes';
 import { COMMENTS } from './comments';
 import { PROMOTIONS } from './promotions';
 import { LEADERS } from './leaders';
